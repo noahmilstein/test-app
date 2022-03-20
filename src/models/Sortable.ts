@@ -1,0 +1,1 @@
+export type Sortable<T, arr> = Exclude<keyof T, arr>
