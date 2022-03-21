@@ -8,10 +8,9 @@ import {
   Tooltip,
   Typography
 } from '@mui/material'
-import { RawFindingDataInput } from "../../models/RawFindingDataInput"
-import { RawFindingDataOutput } from "../../models/RawFindingDataOutput"
-import { HeaderCell } from '../../models/HeaderCell'
-import { capitalize, getSeverityChip, formatUrl, uid } from '../../utils/helpers'
+import { RawFindingDataInput, convertRawToOutput } from "../../../models/RawFindingDataInput"
+import { HeaderCell } from '../../../models/HeaderCell'
+import { capitalize, getSeverityChip, formatUrl, uid } from '../../../utils/helpers'
 
 type Columns = keyof RawFindingDataInput
 
@@ -91,7 +90,7 @@ const subTableHeaderCells: HeaderCell<Columns>[] = [
     minWidth: 170,
     align: 'left',
   },
-];
+]
 
 interface RawFindingSubTableProps {
   rawFindings: RawFindingDataInput[]
@@ -99,24 +98,7 @@ interface RawFindingSubTableProps {
 
 export default function RawFindingSubTable(props: RawFindingSubTableProps) {
   const { rawFindings } = props
-  const cleanRawFindings = rawFindings.map(raw => {
-    return {
-      id: raw.id.toString(),
-      source_security_tool_name: raw.source_security_tool_name,
-      source_security_tool_id: raw.source_security_tool_id,
-      source_collbartion_tool_name: raw.source_collbartion_tool_name,
-      source_collbartion_tool_id: raw.source_collbartion_tool_id,
-      severity: raw.severity,
-      finding_created: raw.finding_created,
-      ticket_created: raw.ticket_created,
-      description: raw.description,
-      asset: raw.asset,
-      status: raw.status,
-      remediation_url: raw.remediation_url,
-      remediation_text: raw.remediation_text,
-      grouped_finding_id: raw.grouped_finding_id.toString()
-    } as RawFindingDataOutput
-  })
+  const cleanRawFindings = rawFindings.map(convertRawToOutput)
 
   return (
     <Box sx={{ margin: 1 }}>
