@@ -1,7 +1,6 @@
 import { Box, Paper } from '@mui/material'
 import { capitalize, getSeverityChip, formatUrl } from '../../utils/helpers'
-import { GroupedFindingDataOutput } from '../../models/GroupedFindingDataOutput'
-import { HeaderCell } from '../../models/HeaderCell'
+import { HeaderCell, GroupedFindingDataOutput } from '../../models'
 import FindingsTableContent from './components/FindingsTableContent'
 
 export type SortableColumns = Exclude<keyof GroupedFindingDataOutput, "raw_findings">

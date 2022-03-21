@@ -1,4 +1,4 @@
-import { RawFindingDataOutput } from './RawFindingDataOutput'
+import { RawFindingDataOutput } from './RawFindingDataOutput.interface'
 
 export interface RawFindingDataInput {
   id: number

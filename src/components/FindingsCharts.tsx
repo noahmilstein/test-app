@@ -1,16 +1,10 @@
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-import { GroupedFindingDataOutput } from '../models/GroupedFindingDataOutput'
+import { GroupedFindingDataOutput, Severity } from '../models'
 import { capitalize } from '../utils/helpers'
 
 interface FindingsChartsProps {
   rows: GroupedFindingDataOutput[]
-}
-enum Severity {
-  Low = 'low',
-  Medium = 'medium',
-  High = 'high',
-  Critical = 'critical'
 }
 
 interface SeverityFrequency {
@@ -56,6 +50,7 @@ export default function FindingsCharts(props: FindingsChartsProps) {
       border: 'rgba(75, 192, 192, 1)',
     }
   }
+
   const severityKeys = Object.keys(groupBySeverity)
 
   const colors = severityKeys.reduce((acc, curr): Colors => {

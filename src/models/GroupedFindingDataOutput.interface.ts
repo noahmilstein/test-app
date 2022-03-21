@@ -1,4 +1,4 @@
-import { RawFindingDataInput } from './RawFindingDataInput'
+import { RawFindingDataInput } from './RawFindingDataInput.interface'
 
 export interface GroupedFindingDataOutput {
   id: string

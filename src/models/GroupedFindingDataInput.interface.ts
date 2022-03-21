@@ -1,5 +1,5 @@
-import { GroupedFindingDataOutput } from './GroupedFindingDataOutput'
-import { RawFindingDataInput } from './RawFindingDataInput'
+import { GroupedFindingDataOutput } from './GroupedFindingDataOutput.interface'
+import { RawFindingDataInput } from './RawFindingDataInput.interface'
 
 export interface GroupedFindingDataInput {
   id: number

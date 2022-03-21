@@ -10,9 +10,8 @@ import {
   KeyboardArrowDown
 } from '@mui/icons-material'
 import { capitalize, uid } from '../../../utils/helpers'
-import { GroupedFindingDataOutput } from '../../../models/GroupedFindingDataOutput'
+import { HeaderCell, GroupedFindingDataOutput } from '../../../models'
 import RawFindingSubTable from './RawFindingSubTable'
-import { HeaderCell } from '../../../models/HeaderCell'
 import { SortableColumns } from '../FindingsTable'
 
 interface CollapsibleRowProps {

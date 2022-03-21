@@ -5,7 +5,7 @@ import GroupedFindingsTable from '../FindingsTable/FindingsTable'
 import FindingsCharts from '../FindingsCharts'
 import groupedFindingsJson from '../../assets/grouped_findings.json'
 import rawFindingsJson from '../../assets/raw_findings.json'
-import { convertGroupToOutput, GroupedFindingDataInput } from '../../models/GroupedFindingDataInput'
+import { convertGroupToOutput, GroupedFindingDataInput } from '../../models'
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0)

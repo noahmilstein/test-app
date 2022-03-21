@@ -12,9 +12,7 @@ import { SortableColumns } from '../FindingsTable'
 import EnhancedTableToolbar from './EnhancedTableToolbar'
 import EnhancedTableHead from './EnhancedTableHead'
 import CollapsibleRow from './CollapsibleRow'
-import { GroupedFindingDataOutput } from '../../../models/GroupedFindingDataOutput'
-import { HeaderCell } from '../../../models/HeaderCell'
-import { Order } from '../../../models/Order'
+import { Order, HeaderCell, GroupedFindingDataOutput } from '../../../models'
 import { getComparator, stableSort, uid } from '../../../utils/helpers'
 
 export interface GroupedFindingsTableContentProps {

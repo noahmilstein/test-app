@@ -1,4 +1,4 @@
-import { Order } from '../models/Order'
+import { Order } from '../models'
 import { Link, Chip } from '@mui/material'
 
 export const capitalize = (words: string, replaceRegex?: RegExp): string => {
