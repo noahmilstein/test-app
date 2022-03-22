@@ -73,17 +73,19 @@ export default function FindingsCharts(props: FindingsChartsProps) {
     - add tests
   */ 
   const data = {
-      labels: severityKeys.map(key => capitalize(key)),
-      datasets: [
-        {
-          label: 'Grouped Findings by Severity',
-          data: Object.values(groupBySeverity),
-          backgroundColor: colors.backgroundColor,
-          borderColor: colors.borderColor,
-          borderWidth: 1,
-        },
-      ],
+    labels: severityKeys.map(key => capitalize(key)),
+    datasets: [
+      {
+        label: 'Grouped Findings by Severity',
+        data: Object.values(groupBySeverity),
+        backgroundColor: colors.backgroundColor,
+        borderColor: colors.borderColor,
+        borderWidth: 1,
+      },
+    ],
   }
+
+  // const style = {}
 
   ChartJS.register(ArcElement, Tooltip, Legend)
   // grouped findings by severity
@@ -92,6 +94,6 @@ export default function FindingsCharts(props: FindingsChartsProps) {
   // group by grouped_finding_created time series
 
   return (
-    <Pie data={data} />
+    <Pie data={data} options={{responsive: true}} />
   )
 }
