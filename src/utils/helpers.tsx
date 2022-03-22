@@ -1,4 +1,4 @@
-import { Order } from '../models/Order'
+import { Order } from '../models'
 import { Link, Chip } from '@mui/material'
 
 export const capitalize = (words: string, replaceRegex?: RegExp): string => {
@@ -35,12 +35,12 @@ export function formatUrl(urlStr: string): JSX.Element {
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
-    return -1;
+    return -1
   }
   if (b[orderBy] > a[orderBy]) {
-    return 1;
+    return 1
   }
-  return 0;
+  return 0
 }
 
 export function getComparator<Key extends keyof any>(
@@ -52,18 +52,18 @@ export function getComparator<Key extends keyof any>(
 ) => number {
   return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
+    : (a, b) => -descendingComparator(a, b, orderBy)
 }
 
 export function stableSort<T>(array: T[], comparator: (a: T, b: T) => number) {
   // This method is created for cross-browser compatibility to support IE11
-  const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
+  const stabilizedThis = array.map((el, index) => [el, index] as [T, number])
   stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
+    const order = comparator(a[0], b[0])
     if (order !== 0) {
-      return order;
+      return order
     }
-    return a[1] - b[1];
-  });
-  return stabilizedThis.map((el) => el[0]);
+    return a[1] - b[1]
+  })
+  return stabilizedThis.map((el) => el[0])
 }

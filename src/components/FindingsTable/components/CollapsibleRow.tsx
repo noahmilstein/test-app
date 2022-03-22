@@ -9,11 +9,10 @@ import {
   KeyboardArrowUp,
   KeyboardArrowDown
 } from '@mui/icons-material'
-import { capitalize, uid } from '../../utils/helpers'
-import { GroupedFindingDataOutput } from '../../models/GroupedFindingDataOutput'
+import { capitalize, uid } from '../../../utils/helpers'
+import { HeaderCell, GroupedFindingDataOutput } from '../../../models'
 import RawFindingSubTable from './RawFindingSubTable'
-import { HeaderCell } from '../../models/HeaderCell'
-import { SortableColumns } from './GroupedFindingsTable'
+import { SortableColumns } from '../FindingsTable'
 
 interface CollapsibleRowProps {
   row: GroupedFindingDataOutput
@@ -56,5 +55,5 @@ export default function CollapsibleRow(props: CollapsibleRowProps) {
         </TableCell>
       </TableRow>
     </React.Fragment>
-  );
+  )
 }

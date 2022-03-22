@@ -1,5 +1,7 @@
-export interface GroupedFindingDataInput {
-  id: number
+import { RawFindingDataInput } from './RawFindingDataInput.interface'
+
+export interface GroupedFindingDataOutput {
+  id: string
   grouping_type: string
   grouping_key: string
   severity: string
@@ -10,5 +12,7 @@ export interface GroupedFindingDataInput {
   owner: string
   workflow: string
   status: string
-  progress: number
+  progress: string
+  number_of_findings: string
+  raw_findings: RawFindingDataInput[]
 }

@@ -8,21 +8,19 @@ import {
   TableContainer,
   Paper
 } from '@mui/material'
-import { SortableColumns } from './GroupedFindingsTable'
+import { SortableColumns } from '../FindingsTable'
 import EnhancedTableToolbar from './EnhancedTableToolbar'
 import EnhancedTableHead from './EnhancedTableHead'
 import CollapsibleRow from './CollapsibleRow'
-import { GroupedFindingDataOutput } from '../../models/GroupedFindingDataOutput'
-import { HeaderCell } from '../../models/HeaderCell'
-import { Order } from '../../models/Order'
-import { getComparator, stableSort, uid } from '../../utils/helpers'
+import { Order, HeaderCell, GroupedFindingDataOutput } from '../../../models'
+import { getComparator, stableSort, uid } from '../../../utils/helpers'
 
 export interface GroupedFindingsTableContentProps {
   rows: GroupedFindingDataOutput[]
   columnConfig: HeaderCell<SortableColumns>[]
 }
 
-export default function GroupedFindingsTableContent(props: GroupedFindingsTableContentProps) {
+export default function FindingsTableContent(props: GroupedFindingsTableContentProps) {
   const { rows, columnConfig } = props
   const [filteredRows, setFilteredRows] = React.useState(rows)
   const [searchTerm, setSearchTerm] = React.useState('')
@@ -95,7 +93,6 @@ export default function GroupedFindingsTableContent(props: GroupedFindingsTableC
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-
     </>
-  );
+  )
 }

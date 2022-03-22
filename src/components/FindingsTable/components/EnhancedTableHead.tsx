@@ -7,10 +7,9 @@ import {
   TableRow,
   Tooltip
 } from '@mui/material'
-import { SortableColumns } from './GroupedFindingsTable'
-import { Order } from '../../models/Order'
-import { HeaderCell } from '../../models/HeaderCell'
-import { uid } from '../../utils/helpers'
+import { SortableColumns } from '../FindingsTable'
+import { HeaderCell, Order } from '../../../models'
+import { uid } from '../../../utils/helpers'
 import { visuallyHidden } from '@mui/utils'
 
 
@@ -60,5 +59,5 @@ export default function EnhancedTableHead(props: EnhancedTableProps) {
         ))}
       </TableRow>
     </TableHead>
-  );
+  )
 }

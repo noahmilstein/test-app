@@ -1,42 +1,14 @@
 import { Box, Paper } from '@mui/material'
 import { capitalize, getSeverityChip, formatUrl } from '../../utils/helpers'
-import groupedFindingsJson from '../../assets/grouped_findings.json'
-import rawFindingsJson from '../../assets/raw_findings.json'
-import { GroupedFindingDataInput } from '../../models/GroupedFindingDataInput'
-import { GroupedFindingDataOutput } from '../../models/GroupedFindingDataOutput'
-import { HeaderCell } from '../../models/HeaderCell'
-import GroupedFindingsTableContent from './GroupedFindingsTableContent'
+import { HeaderCell, GroupedFindingDataOutput } from '../../models'
+import FindingsTableContent from './components/FindingsTableContent'
 
 export type SortableColumns = Exclude<keyof GroupedFindingDataOutput, "raw_findings">
-
-const groupedFindingsData = [...groupedFindingsJson] // WORKING HERE : make API GET call
-const rawFindingsData = [...rawFindingsJson] // WORKING HERE : make API GET call
-
-const createData = (rawDatum: GroupedFindingDataInput): GroupedFindingDataOutput => {
-  const raw_findings = rawFindingsData.filter(raw => raw.grouped_finding_id === rawDatum.id)
-
-  return {
-    id: rawDatum.id.toString(),
-    grouping_type: rawDatum.grouping_type,
-    grouping_key: rawDatum.grouping_key,
-    severity: rawDatum.severity,
-    grouped_finding_created: rawDatum.grouped_finding_created,
-    sla: rawDatum.sla,
-    description: rawDatum.description,
-    security_analyst: rawDatum.security_analyst,
-    owner: rawDatum.owner,
-    workflow: rawDatum.workflow,
-    status: rawDatum.status,
-    progress: rawDatum.progress.toString(),
-    number_of_findings: raw_findings.length.toString(),
-    raw_findings
-  } as GroupedFindingDataOutput
-} 
 
 const headerCells: HeaderCell<SortableColumns>[] = [
   {
     id: 'grouping_type',
-    label: 'Grouping Type MOO',
+    label: 'Grouping Type',
     minWidth: 170,
   },
   { 
@@ -118,17 +90,21 @@ const headerCells: HeaderCell<SortableColumns>[] = [
     minWidth: 170,
     align: 'left'
   },
-];
+]
 
-export default function GroupedFindingsTable() {
-  const rows = groupedFindingsData.map((datum: GroupedFindingDataInput) => createData({...datum}))
+interface GroupedFindingsTableProps {
+  rows: GroupedFindingDataOutput[]
+}
+
+export default function FindingsTable(props: GroupedFindingsTableProps) {
+  const { rows } = props
   const columnConfig = headerCells
 
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
-        <GroupedFindingsTableContent rows={rows} columnConfig={columnConfig} />
+        <FindingsTableContent rows={rows} columnConfig={columnConfig} />
       </Paper>
     </Box>
-  );
+  )
 }

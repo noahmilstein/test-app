@@ -1,5 +1,4 @@
-import './App.css'
-import GroupedFindingsTable from './components/Table/GroupedFindingsTable'
+import BasicTabs from './components/BasicTabs/BasicTabs'
 
 function App() {
   // You are tasked with creating a single web page that has the following components:
@@ -8,11 +7,13 @@ function App() {
 
   /*
     TODO:
-    - push to github
     - add data viz
       - wrap table in tabs
       - tab 1 is table
       - tab 2 is data viz
+      - refine pie chart
+      - separate charts into accordions
+      - add more charts
     - add test coverage
     - create node API to query for json
     - update README
@@ -21,11 +22,12 @@ function App() {
       - seed DB
     - add prettier
   */
+
   return (
-    <div className="App">
-      <GroupedFindingsTable />
+    <div className="App" data-testid="app-wrapper">
+      <BasicTabs />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
