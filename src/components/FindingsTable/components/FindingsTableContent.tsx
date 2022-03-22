@@ -69,7 +69,7 @@ export default function FindingsTableContent(props: GroupedFindingsTableContentP
             headerCells={columnConfig}
           />
           <TableBody>
-            {stableSort(filteredRows, getComparator(order, orderBy))
+            {stableSort(filteredRows, getComparator<SortableColumns>(order, orderBy))
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => <CollapsibleRow key={`${row.id}-${uid()}`} row={row} columnConfig={columnConfig} />)}
             {emptyRows > 0 && (
