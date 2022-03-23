@@ -8,9 +8,10 @@ import {
   Tooltip
 } from '@mui/material'
 import { SortableColumns } from '../FindingsTable'
-import { HeaderCell, Order } from '../../../models'
 import { uid } from '../../../utils/helpers'
 import { visuallyHidden } from '@mui/utils'
+import { HeaderCell } from '../../../models/HeaderCell.interface'
+import { Order } from '../../../models/Order.type'
 
 
 interface EnhancedTableProps {

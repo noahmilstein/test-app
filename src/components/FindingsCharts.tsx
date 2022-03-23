@@ -1,7 +1,9 @@
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-import { GroupedFindingDataOutput, Severity } from '../models'
 import { capitalize } from '../utils/helpers'
+import { Box } from '@mui/material'
+import { GroupedFindingDataOutput } from '../models/GroupedFindingDataOutput.interface'
+import { Severity } from '../models/Severity.enum'
 
 interface FindingsChartsProps {
   rows: GroupedFindingDataOutput[]
@@ -94,6 +96,8 @@ export default function FindingsCharts(props: FindingsChartsProps) {
   // group by grouped_finding_created time series
 
   return (
-    <Pie data={data} options={{responsive: true}} />
+    <Box data-testid="pie-chart">
+      <Pie data={data} options={{responsive: true}} />
+    </Box>
   )
 }

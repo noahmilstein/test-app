@@ -1,5 +1,6 @@
-import { Order } from '../models'
 import { Link, Chip } from '@mui/material'
+import { Order } from '../models/Order.type'
+import { Severity } from '../models/Severity.enum'
 
 export const capitalize = (words: string, replaceRegex?: RegExp): string => {
   return (replaceRegex ? words.replace(replaceRegex, ' ') : words)
@@ -12,13 +13,13 @@ export const uid = (length = 6): string => {
 
 export function getSeverityChip(severity: string): JSX.Element {
   switch (severity) {
-    case 'low':
+    case Severity.Low:
       return <Chip label={capitalize(severity)} color="success" />
-    case 'medium':
+    case Severity.Medium:
       return <Chip label={capitalize(severity)} color="info" />
-    case 'high':
+    case Severity.High:
       return <Chip label={capitalize(severity)} color="warning" />
-    case 'critical':
+    case Severity.Critical:
       return <Chip label={capitalize(severity)} color="error" />
     default:
       return <Chip label={capitalize(severity)} color="primary" />
@@ -33,7 +34,7 @@ export function formatUrl(urlStr: string): JSX.Element {
   return <span>{prefix}<Link href={linkPath}>{linkPath}</Link></span>
 }
 
-function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
+function descendingComparator<T>(a: T, b: T, orderBy: keyof T): 0 | 1 | -1 {
   if (b[orderBy] < a[orderBy]) {
     return -1
   }

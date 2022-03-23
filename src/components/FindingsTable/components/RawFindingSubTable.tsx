@@ -8,7 +8,8 @@ import {
   Tooltip,
   Typography
 } from '@mui/material'
-import { HeaderCell,  RawFindingDataInput, convertRawToOutput } from "../../../models"
+import { HeaderCell } from '../../../models/HeaderCell.interface'
+import { RawFindingDataInput, convertRawToOutput } from '../../../models/RawFindingDataInput.interface'
 import { capitalize, getSeverityChip, formatUrl, uid } from '../../../utils/helpers'
 
 type Columns = keyof RawFindingDataInput
