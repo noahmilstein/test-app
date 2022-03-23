@@ -1,4 +1,4 @@
-import { Severity } from '../../models'
+import { Severity } from '../../models/Severity.enum'
 import {
   getComparator,
   stableSort,

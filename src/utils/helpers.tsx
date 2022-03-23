@@ -1,5 +1,6 @@
-import { Order, Severity } from '../models'
 import { Link, Chip } from '@mui/material'
+import { Order } from '../models/Order.type'
+import { Severity } from '../models/Severity.enum'
 
 export const capitalize = (words: string, replaceRegex?: RegExp): string => {
   return (replaceRegex ? words.replace(replaceRegex, ' ') : words)

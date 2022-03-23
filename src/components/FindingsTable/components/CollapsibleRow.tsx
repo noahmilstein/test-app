@@ -10,9 +10,10 @@ import {
   KeyboardArrowDown
 } from '@mui/icons-material'
 import { capitalize, uid } from '../../../utils/helpers'
-import { HeaderCell, GroupedFindingDataOutput } from '../../../models'
 import RawFindingSubTable from './RawFindingSubTable'
 import { SortableColumns } from '../FindingsTable'
+import { GroupedFindingDataOutput } from '../../../models/GroupedFindingDataOutput.interface'
+import { HeaderCell } from '../../../models/HeaderCell.interface'
 
 interface CollapsibleRowProps {
   row: GroupedFindingDataOutput
@@ -26,7 +27,7 @@ export default function CollapsibleRow(props: CollapsibleRowProps) {
 
   return (
     <React.Fragment>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }} hover tabIndex={-1}>
+      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }} hover tabIndex={-1} data-testid={`collapsible-row-${row.id}`}>
         <TableCell
           component="th"
           id={row.id}

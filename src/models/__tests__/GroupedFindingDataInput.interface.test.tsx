@@ -1,9 +1,6 @@
-import { 
-  GroupedFindingDataInput, 
-  GroupedFindingDataOutput, 
-  RawFindingDataInput, 
-  convertGroupToOutput 
-} from '../'
+import { convertGroupToOutput, GroupedFindingDataInput } from "../GroupedFindingDataInput.interface"
+import { GroupedFindingDataOutput } from "../GroupedFindingDataOutput.interface"
+import { RawFindingDataInput } from "../RawFindingDataInput.interface"
 
 test('convertGroupToOutput should convert data as expected', () => {
   const input = {

@@ -1,8 +1,5 @@
-import { 
-  RawFindingDataInput, 
-  convertRawToOutput, 
-  RawFindingDataOutput
-} from '../'
+import { RawFindingDataInput, convertRawToOutput } from "../RawFindingDataInput.interface"
+import { RawFindingDataOutput } from "../RawFindingDataOutput.interface"
 
 test('convertRawToOutput should convert data as expected', () => {
   const input = {

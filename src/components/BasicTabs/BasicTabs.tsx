@@ -1,11 +1,11 @@
 import React from 'react'
-import TabContent from './TabContent'
+import TabContent from './components/TabContent'
 import { Tabs, Tab } from '@mui/material'
 import GroupedFindingsTable from '../FindingsTable/FindingsTable'
 import FindingsCharts from '../FindingsCharts'
 import groupedFindingsJson from '../../assets/grouped_findings.json'
 import rawFindingsJson from '../../assets/raw_findings.json'
-import { convertGroupToOutput, GroupedFindingDataInput } from '../../models'
+import { GroupedFindingDataInput, convertGroupToOutput } from '../../models/GroupedFindingDataInput.interface'
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0)
@@ -30,7 +30,7 @@ export default function BasicTabs() {
     <>
       <Tabs value={value} onChange={handleChange} aria-label="findings tabs">
         <Tab label="Findings Table" {...a11yProps(0)} />
-        <Tab label="Findings Graphs" {...a11yProps(0)} />
+        <Tab label="Findings Graphs" {...a11yProps(1)} />
       </Tabs>
       <TabContent value={value} index={0}>
         <GroupedFindingsTable rows={rows} />

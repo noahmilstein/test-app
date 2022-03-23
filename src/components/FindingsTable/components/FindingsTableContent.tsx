@@ -12,8 +12,10 @@ import { SortableColumns } from '../FindingsTable'
 import EnhancedTableToolbar from './EnhancedTableToolbar'
 import EnhancedTableHead from './EnhancedTableHead'
 import CollapsibleRow from './CollapsibleRow'
-import { Order, HeaderCell, GroupedFindingDataOutput } from '../../../models'
 import { getComparator, stableSort, uid } from '../../../utils/helpers'
+import { GroupedFindingDataOutput } from '../../../models/GroupedFindingDataOutput.interface'
+import { HeaderCell } from '../../../models/HeaderCell.interface'
+import { Order } from '../../../models/Order.type'
 
 export interface GroupedFindingsTableContentProps {
   rows: GroupedFindingDataOutput[]
@@ -59,8 +61,8 @@ export default function FindingsTableContent(props: GroupedFindingsTableContentP
 
   return (
     <>
-      <EnhancedTableToolbar setSearchTerm={setSearchTerm} />
-      <TableContainer component={Paper}>
+      <EnhancedTableToolbar setSearchTerm={setSearchTerm}/>
+      <TableContainer component={Paper} data-testid="findings-table-container">
         <Table aria-label="collapsible table">
           <EnhancedTableHead
             order={order}
@@ -71,7 +73,7 @@ export default function FindingsTableContent(props: GroupedFindingsTableContentP
           <TableBody>
             {stableSort(filteredRows, getComparator<SortableColumns>(order, orderBy))
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, index) => <CollapsibleRow key={`${row.id}-${uid()}`} row={row} columnConfig={columnConfig} />)}
+              .map((row, index) => <CollapsibleRow key={`${row.id}-${uid()}`} row={row} columnConfig={columnConfig} data-testid={`collapsible-row-${index}`} />)}
             {emptyRows > 0 && (
               <TableRow
                 style={{
